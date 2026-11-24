@@ -1,0 +1,36 @@
+{
+  // Run > "All 3 nodes" starts three Flask nodes in VS Code's debugger (breakpoints work).
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Node 1 (5001, zone-A)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/node.py",
+      "args": ["--port", "5001", "--name", "node1", "--zone", "zone-A",
+               "--data-dir", "${workspaceFolder}/data/node1-5001"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node 2 (5002, zone-B)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/node.py",
+      "args": ["--port", "5002", "--name", "node2", "--zone", "zone-B", "--bootstrap", "127.0.0.1:5001",
+               "--data-dir", "${workspaceFolder}/data/node2-5002"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node 3 (5003, zone-A)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/node.py",
+      "args": ["--port", "5003", "--name", "node3", "--zone", "zone-A", "--bootstrap", "127.0.0.1:5001",
+               "--data-dir", "${workspaceFolder}/data/node3-5003"],
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    { "name": "All 3 nodes", "configurations": ["Node 1 (5001, zone-A)", "Node 2 (5002, zone-B)", "Node 3 (5003, zone-A)"] }
+  ]
+}

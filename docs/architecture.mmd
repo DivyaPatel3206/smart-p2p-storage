@@ -1,0 +1,23 @@
+flowchart LR
+    UI["React dashboard<br/>(Vite, port 5173)"] -->|"/api/* (CORS)"| N1
+
+    subgraph N1["Node 1 · port 5001 · zone-A (every node is identical)"]
+        direction TB
+        API["Flask API<br/>/api · /gateway"] --> UP["Upload pipeline"]
+        UP --> FIX["1 · SHA-256 fixity<br/>file-level dedup"]
+        UP --> CDC["2 · AE chunking<br/>h = µ − 256 (Paper 2)"]
+        CDC --> CH["3 · SHA-256 per chunk<br/>chunk-level dedup"]
+        UP --> MAN["4 · manifest → content ID<br/>+ object UID versions (Paper 1)"]
+        UP --> DH["5 · dHash 64-bit → 4 bands<br/>per-epoch pseudonyms (Paper 3)"]
+        UP --> AI["6 · DistilBART / BLIP<br/>+ reliability flag (Paper 4)"]
+        DHT["Kademlia DHT<br/>XOR distance · k-buckets<br/>zone-aware placement"]
+        FIX & CH & MAN & DH & AI --> DHT
+        ST[("SQLite node.db<br/>+ blocks/ by hash")]
+        CH --> ST
+        DHT --> ST
+        BG["Background threads<br/>heartbeat 3 s · probes<br/>re-replication · republish · scrub"] --> DHT
+    end
+
+    N1 <-->|"/p2p/* signed with swarm key (HMAC)"| N2["Node 2 · 5002 · zone-B"]
+    N1 <-->|"/p2p/*"| N3["Node 3 · 5003 · zone-A"]
+    N2 <-->|"/p2p/*"| N3

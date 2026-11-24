@@ -1,0 +1,28 @@
+{
+  // Terminal > Run Task... > "Start everything" opens the nodes and the React dashboard side by side.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run 3 nodes",
+      "type": "shell",
+      "command": "python scripts/run_nodes.py",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "group": "p2p" }
+    },
+    {
+      "label": "React dashboard",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "group": "p2p" }
+    },
+    {
+      "label": "Start everything",
+      "dependsOn": ["Run 3 nodes", "React dashboard"],
+      "problemMatcher": []
+    }
+  ]
+}

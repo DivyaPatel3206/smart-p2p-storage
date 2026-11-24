@@ -1,0 +1,144 @@
+{
+ "paper": {
+  "recovery": [
+   {
+    "workload": "Raw acquisition A",
+    "size_gb": 6.2,
+    "rate_mb_s": 182
+   },
+   {
+    "workload": "Raw acquisition B",
+    "size_gb": 5.19,
+    "rate_mb_s": 368
+   }
+  ],
+  "ingest": {
+   "workload": "Model weights",
+   "size_gb": 156.1,
+   "rate_mb_s": 520
+  },
+  "block_stat_ms": {
+   "Edge-01": [
+    28.2,
+    87.8
+   ],
+   "Edge-04": [
+    30.0,
+    35.6
+   ],
+   "Archive-01": [
+    15.5,
+    18.5
+   ],
+   "Archive-02": [
+    14.3,
+    14.9
+   ]
+  }
+ },
+ "workloads": [
+  {
+   "workload": "eval_text_1MB.bin",
+   "size_mb": 1.05,
+   "ingest_s": 0.203,
+   "ingest_mb_s": 5.17,
+   "recovery_s": 0.049,
+   "recovery_mb_s": 21.38,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 266
+  },
+  {
+   "workload": "eval_random_1MB.bin",
+   "size_mb": 1.05,
+   "ingest_s": 0.179,
+   "ingest_mb_s": 5.85,
+   "recovery_s": 0.043,
+   "recovery_mb_s": 24.65,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 257
+  },
+  {
+   "workload": "eval_text_4MB.bin",
+   "size_mb": 4.19,
+   "ingest_s": 0.759,
+   "ingest_mb_s": 5.53,
+   "recovery_s": 0.136,
+   "recovery_mb_s": 30.81,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 1063
+  },
+  {
+   "workload": "eval_random_4MB.bin",
+   "size_mb": 4.19,
+   "ingest_s": 0.581,
+   "ingest_mb_s": 7.22,
+   "recovery_s": 0.132,
+   "recovery_mb_s": 31.87,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 1024
+  },
+  {
+   "workload": "eval_text_16MB.bin",
+   "size_mb": 16.78,
+   "ingest_s": 2.831,
+   "ingest_mb_s": 5.93,
+   "recovery_s": 0.409,
+   "recovery_mb_s": 41.0,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 4250
+  },
+  {
+   "workload": "eval_random_16MB.bin",
+   "size_mb": 16.78,
+   "ingest_s": 2.541,
+   "ingest_mb_s": 6.6,
+   "recovery_s": 0.466,
+   "recovery_mb_s": 36.03,
+   "recovered_on": 5003,
+   "verified": true,
+   "chunks": 4100
+  }
+ ],
+ "telemetry": {
+  "5001": {
+   "node": "node1",
+   "zone": "zone-A",
+   "probes": 16,
+   "window_h": 0.015,
+   "p50_ms": 0.104,
+   "p90_ms": 0.156,
+   "chunk_bytes": 22488155
+  },
+  "5002": {
+   "node": "node2",
+   "zone": "zone-B",
+   "probes": 16,
+   "window_h": 0.015,
+   "p50_ms": 0.105,
+   "p90_ms": 0.893,
+   "chunk_bytes": 44040192
+  },
+  "5003": {
+   "node": "node3",
+   "zone": "zone-A",
+   "probes": 16,
+   "window_h": 0.015,
+   "p50_ms": 0.09,
+   "p90_ms": 0.144,
+   "chunk_bytes": 21552037
+  }
+ },
+ "capacity": {
+  "raw_bytes_all_nodes": 88080384,
+  "replication_k": 2,
+  "unique_bytes_estimate": 44040192,
+  "logical_bytes_uploaded_by_eval": 44040192,
+  "replication_health": "10960/10960 chunks with >= k live copies",
+  "rule": "C_unique <= C_raw / r (Paper 1, Sec. 4.4)"
+ }
+}

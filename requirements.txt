@@ -1,0 +1,13 @@
+# --- core (needed to run the nodes, demo and evaluation) ---
+flask>=3.0
+requests>=2.31
+pillow>=10.0
+numpy>=1.26
+cryptography>=42.0      # AES for optional convergent encryption
+pypdf>=4.0              # text extraction from PDFs for summarisation
+matplotlib>=3.8         # plots written by eval/eval_chunking.py
+
+# --- AI models (DistilBART + BLIP). ~1.5 GB of model files download on first use.
+# Without these two packages the nodes still run and use clearly-labelled fallbacks.
+torch>=2.2
+transformers>=4.40

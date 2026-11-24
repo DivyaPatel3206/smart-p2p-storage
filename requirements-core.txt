@@ -1,0 +1,8 @@
+# Same as requirements.txt but WITHOUT torch/transformers (quick start, fallback AI).
+flask>=3.0
+requests>=2.31
+pillow>=10.0
+numpy>=1.26
+cryptography>=42.0
+pypdf>=4.0
+matplotlib>=3.8

@@ -1,0 +1,82 @@
+{
+ "captions": {
+  "model": "fallback-colour-heuristic",
+  "examples": [
+   {
+    "reference": "one large yellow square on the right of a black background",
+    "caption": "a 1:1 image, mostly black with yellow areas",
+    "confidence": null
+   },
+   {
+    "reference": "two large red circles on the center of a white background",
+    "caption": "a 1:1 image, mostly white with red areas",
+    "confidence": null
+   },
+   {
+    "reference": "one large red circle on the left of a black background",
+    "caption": "a 1:1 image, mostly black with red areas",
+    "confidence": null
+   },
+   {
+    "reference": "two small green circles on the center of a gray background",
+    "caption": "a 1:1 image, mostly gray with green areas",
+    "confidence": null
+   },
+   {
+    "reference": "one large blue circle on the center of a gray background",
+    "caption": "a 1:1 image, mostly gray with blue areas",
+    "confidence": null
+   }
+  ],
+  "full": {
+   "rouge1": 0.3158,
+   "rouge2": 0.0,
+   "rougeL": 0.2105,
+   "meteor": 0.1515,
+   "contra_acc": 0.0,
+   "mean_accuracy": 0.2194,
+   "per_dimension": {
+    "shape": 0.0,
+    "color": 1.0,
+    "count": 0.317,
+    "background": 0.0,
+    "position": 0.0,
+    "size": 0.0
+   }
+  },
+  "64x64": {
+   "rouge1": 0.3158,
+   "rouge2": 0.0,
+   "rougeL": 0.2105,
+   "meteor": 0.1515,
+   "contra_acc": 0.0,
+   "mean_accuracy": 0.2194,
+   "per_dimension": {
+    "shape": 0.0,
+    "color": 1.0,
+    "count": 0.317,
+    "background": 0.0,
+    "position": 0.0,
+    "size": 0.0
+   }
+  }
+ },
+ "summaries": {
+  "model": "fallback-extractive",
+  "rouge1": 0.2787,
+  "rouge2": 0.0613,
+  "rougeL": 0.2035,
+  "examples": [
+   "Each participating computer contributes disk space and bandwidth, and files are split into chunks that are spread across many machines. Replication keeps several copies of every chunk so that the network survives when individual machines go offline. The main challenges are finding data quickly, keeping enough copies alive, and avoiding wasted space when many users store the same files.",
+   "Systems first cut files into chunks, compute a fingerprint for each chunk and store only chunks whose fingerprint has not been seen before. Fixed-size chunking is fast but a single inserted byte shifts every later boundary, so almost nothing matches afterwards. Content-defined chunking chooses boundaries from the data itself, so the boundaries re-synchronise after an edit and most chunks are still recognised as duplicates.",
+   "Image captioning models such as BLIP describe a picture in a short sentence. Recent studies show that these models often rely on common patterns from their training data instead of looking carefully at the picture, and their accuracy falls sharply when images are small or show unusual scenes. Captions should therefore be treated as helpful hints rather than verified facts."
+  ]
+ },
+ "contra_acc_mode": "caption-grounded",
+ "paper_reference": {
+  "strongest closed-source MLLM Contra-Acc": "~60 %",
+  "humans": "96.04 %",
+  "open-source MLLMs": "35-37 %",
+  "at 64x64 resolution": "8.68 %"
+ }
+}

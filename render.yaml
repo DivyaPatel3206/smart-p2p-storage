@@ -1,0 +1,82 @@
+# Render Blueprint: 3 P2P nodes (Python web services) + the React dashboard (static site).
+# Render dashboard -> New -> Blueprint -> pick this repo -> Apply.
+#
+# Free-plan facts to know: 512 MB RAM per service (too small for torch/BLIP, so the
+# nodes install requirements-core.txt and use the labelled AI fallbacks), the disk is
+# ephemeral (a restart wipes that node's chunks - replication on the other nodes
+# repairs it), and 750 free instance hours per month are shared by all services.
+
+envVarGroups:
+  - name: p2p-swarm
+    envVars:
+      - key: SWARM_KEY            # same random secret for every node (Paper 1: private swarm key)
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: REPLICATION_K
+        value: 2
+
+services:
+  - type: web
+    name: p2p-node1
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-core.txt
+    startCommand: python backend/node.py
+    healthCheckPath: /healthz
+    envVars:
+      - fromGroup: p2p-swarm
+      - key: NODE_NAME
+        value: node1
+      - key: NODE_ZONE
+        value: zone-A
+
+  - type: web
+    name: p2p-node2
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-core.txt
+    startCommand: python backend/node.py
+    healthCheckPath: /healthz
+    envVars:
+      - fromGroup: p2p-swarm
+      - key: NODE_NAME
+        value: node2
+      - key: NODE_ZONE
+        value: zone-B
+      - key: BOOTSTRAP_HOST       # public hostname of node1 -> https://<host>
+        fromService:
+          name: p2p-node1
+          type: web
+          envVarKey: RENDER_EXTERNAL_HOSTNAME
+
+  - type: web
+    name: p2p-node3
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-core.txt
+    startCommand: python backend/node.py
+    healthCheckPath: /healthz
+    envVars:
+      - fromGroup: p2p-swarm
+      - key: NODE_NAME
+        value: node3
+      - key: NODE_ZONE
+        value: zone-A
+      - key: BOOTSTRAP_HOST
+        fromService:
+          name: p2p-node1
+          type: web
+          envVarKey: RENDER_EXTERNAL_HOSTNAME
+
+  - type: web
+    name: p2p-dashboard
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: VITE_NODES           # set after the first deploy, e.g. https://p2p-node1.onrender.com
+        sync: false

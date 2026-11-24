@@ -1,0 +1,15 @@
+# ONE Render service that runs all 3 P2P nodes + the dashboard (needs only 1 free slot).
+# Render -> New -> Blueprint -> repo -> Blueprint Path: render-single.yaml -> Deploy.
+services:
+  - type: web
+    name: smart-p2p-storage
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-core.txt
+    startCommand: python scripts/cloud_start.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: SWARM_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.12.7

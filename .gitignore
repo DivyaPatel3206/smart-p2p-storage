@@ -1,0 +1,8 @@
+data/
+samples/
+__pycache__/
+*.pyc
+.venv/
+venv/
+frontend/node_modules/
+frontend/dist/

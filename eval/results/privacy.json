@@ -1,0 +1,379 @@
+{
+ "config": {
+  "C": 10,
+  "n_db": 400,
+  "M": 1500,
+  "known": 0.05,
+  "zipf": 1.0,
+  "reupload": 0.5,
+  "runs": 3,
+  "topk": 10,
+  "from_nodes": null
+ },
+ "paper_reference": {
+  "SAGE-Known record-label accuracy (1% known labels)": "up to 84.3 %",
+  "SAGE-Dist AG News record / query accuracy": "66.9 % / 68.1 %"
+ },
+ "settings": {
+  "top-10 (Paper 3 setting), known=1%, no rotation": {
+   "record_acc": {
+    "mean": 0.3664,
+    "std": 0.1136
+   },
+   "macro_f1": {
+    "mean": 0.1056,
+    "std": 0.0143
+   },
+   "query_acc": {
+    "mean": 0.3531,
+    "std": 0.1418
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.3664,
+    "std": 0.1136
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "top-10 (Paper 3 setting), known=1%, rotation x4": {
+   "record_acc": {
+    "mean": 0.3576,
+    "std": 0.1118
+   },
+   "macro_f1": {
+    "mean": 0.1019,
+    "std": 0.0153
+   },
+   "query_acc": {
+    "mean": 0.3627,
+    "std": 0.1286
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.3576,
+    "std": 0.1118
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "top-10 (Paper 3 setting), known=1%, rotation x16": {
+   "record_acc": {
+    "mean": 0.3196,
+    "std": 0.1068
+   },
+   "macro_f1": {
+    "mean": 0.0866,
+    "std": 0.0155
+   },
+   "query_acc": {
+    "mean": 0.3333,
+    "std": 0.1117
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.3196,
+    "std": 0.1068
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "top-10 (Paper 3 setting), known=5%, no rotation": {
+   "record_acc": {
+    "mean": 0.6074,
+    "std": 0.0115
+   },
+   "macro_f1": {
+    "mean": 0.4064,
+    "std": 0.0465
+   },
+   "query_acc": {
+    "mean": 0.6667,
+    "std": 0.0444
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.6074,
+    "std": 0.0115
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "top-10 (Paper 3 setting), known=5%, rotation x4": {
+   "record_acc": {
+    "mean": 0.536,
+    "std": 0.014
+   },
+   "macro_f1": {
+    "mean": 0.3529,
+    "std": 0.0286
+   },
+   "query_acc": {
+    "mean": 0.6264,
+    "std": 0.023
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.536,
+    "std": 0.014
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "top-10 (Paper 3 setting), known=5%, rotation x16": {
+   "record_acc": {
+    "mean": 0.4389,
+    "std": 0.0181
+   },
+   "macro_f1": {
+    "mean": 0.2644,
+    "std": 0.0103
+   },
+   "query_acc": {
+    "mean": 0.5436,
+    "std": 0.011
+   },
+   "coverage": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "acc_on_reached": {
+    "mean": 0.4389,
+    "std": 0.0181
+   },
+   "nonempty_queries": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=1%, no rotation": {
+   "record_acc": {
+    "mean": 0.3479,
+    "std": 0.0064
+   },
+   "macro_f1": {
+    "mean": 0.0518,
+    "std": 0.0005
+   },
+   "query_acc": {
+    "mean": 0.3662,
+    "std": 0.0211
+   },
+   "coverage": {
+    "mean": 0.0982,
+    "std": 0.1309
+   },
+   "acc_on_reached": {
+    "mean": 0.2233,
+    "std": 0.3158
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=1%, rotation x4": {
+   "record_acc": {
+    "mean": 0.372,
+    "std": 0.0108
+   },
+   "macro_f1": {
+    "mean": 0.0542,
+    "std": 0.0011
+   },
+   "query_acc": {
+    "mean": 0.3662,
+    "std": 0.0211
+   },
+   "coverage": {
+    "mean": 0.0012,
+    "std": 0.001
+   },
+   "acc_on_reached": {
+    "mean": 0.3333,
+    "std": 0.4714
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=1%, rotation x16": {
+   "record_acc": {
+    "mean": 0.4127,
+    "std": 0.023
+   },
+   "macro_f1": {
+    "mean": 0.0584,
+    "std": 0.0023
+   },
+   "query_acc": {
+    "mean": 0.3662,
+    "std": 0.0211
+   },
+   "coverage": {
+    "mean": 0.0005,
+    "std": 0.0004
+   },
+   "acc_on_reached": {
+    "mean": 0.3333,
+    "std": 0.4714
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=5%, no rotation": {
+   "record_acc": {
+    "mean": 0.3849,
+    "std": 0.0269
+   },
+   "macro_f1": {
+    "mean": 0.1093,
+    "std": 0.0408
+   },
+   "query_acc": {
+    "mean": 0.424,
+    "std": 0.0194
+   },
+   "coverage": {
+    "mean": 0.2479,
+    "std": 0.1455
+   },
+   "acc_on_reached": {
+    "mean": 0.5297,
+    "std": 0.1129
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=5%, rotation x4": {
+   "record_acc": {
+    "mean": 0.3891,
+    "std": 0.023
+   },
+   "macro_f1": {
+    "mean": 0.0819,
+    "std": 0.0214
+   },
+   "query_acc": {
+    "mean": 0.3983,
+    "std": 0.0057
+   },
+   "coverage": {
+    "mean": 0.0847,
+    "std": 0.0491
+   },
+   "acc_on_reached": {
+    "mean": 0.6934,
+    "std": 0.1873
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  },
+  "band index (ours), known=5%, rotation x16": {
+   "record_acc": {
+    "mean": 0.4232,
+    "std": 0.0315
+   },
+   "macro_f1": {
+    "mean": 0.077,
+    "std": 0.0172
+   },
+   "query_acc": {
+    "mean": 0.3909,
+    "std": 0.0132
+   },
+   "coverage": {
+    "mean": 0.0803,
+    "std": 0.0626
+   },
+   "acc_on_reached": {
+    "mean": 0.7064,
+    "std": 0.2874
+   },
+   "nonempty_queries": {
+    "mean": 0.5782,
+    "std": 0.0207
+   },
+   "majority_baseline": {
+    "mean": 0.3434,
+    "std": 0.0
+   }
+  }
+ }
+}
